@@ -1,0 +1,30 @@
+
+
+I = imread("frames/adam1.jpg");
+
+FDetect = vision.CascadeObjectDetector;
+
+MouthDetect = vision.CascadeObjectDetector('Mouth','MergeThreshold',100);
+BB = step(MouthDetect,I);
+BB2 = BB+[-20,-20,50,30];
+
+% BB = step(FDetect,I);
+imshow(I); hold on
+
+for i = 1:size(BB2,1)
+    rectangle('Position',BB2(i,:), 'LineWidth',1, 'LineStyle','-','EdgeColor','r');
+end
+
+
+
+title('Mouth Detection');
+hold off;
+
+imcrop(I,BB2);
+
+for j = 1:108
+    A = imread("frames/" + i )
+end 
+
+
+
